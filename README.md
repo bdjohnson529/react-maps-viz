@@ -10,6 +10,31 @@ This is a React app which requires [Node.js](https://nodejs.org/en/) to run. You
 node -v
 ```
 
+## Setup
+Create a file named `.env` in the base directory. Paste the following code into the file `.env`, replacing YOURAPIKEY with a Google Maps Javascript API key.
+
+```
+REACT_APP_API_KEY = 'YOUR_MAPS_JS_API_KEY'
+```
+
+Add the file `.env` to the `.gitignore`.
+
+```
+# api keys
+.env
+```
+
+The repository file structure should resemble:
+
+```
++- public
++- src
+	+- data
+		+- la_deserts.json
+	+- Map.js
++- .env
+```
+
 ## Usage
 On the command line, navigate to the lowest level of the repository. The following commands will serve the app on the local network:
 
@@ -41,30 +66,7 @@ This app uses geojson files to build data layers on top of Google Maps. There ar
     },
 ```
 
-## Setup
-Create a file named `.env` in the base directory. Paste the following code into the file `.env`, replacing YOURAPIKEY with a Google Maps Javascript API key.
 
-```
-REACT_APP_API_KEY = 'YOUR_MAPS_JS_API_KEY'
-```
-
-Add the file `.env` to the `.gitignore`.
-
-```
-# api keys
-.env
-```
-
-The repository file structure should resemble:
-
-```
-+- public
-+- src
-	+- data
-		+- la_deserts.json
-	+- Map.js
-+- .env
-```
 
 
 ## Credit
