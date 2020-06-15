@@ -11,17 +11,10 @@ node -v
 ```
 
 ## Setup
-Create a file named `.env` in the base directory. Paste the following code into the file `.env`, replacing YOURAPIKEY with a Google Maps Javascript API key.
+Create a file named `.env` in the base directory. Paste the following code into the file `.env`, replacing YOURAPIKEY with a Google Maps Javascript API key. The `.env` file is added to `.gitignore` so the API key will not be committed to source control.
 
 ```
 REACT_APP_API_KEY = 'YOUR_MAPS_JS_API_KEY'
-```
-
-Add the file `.env` to the `.gitignore`.
-
-```
-# api keys
-.env
 ```
 
 The repository file structure should resemble:
