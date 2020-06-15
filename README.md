@@ -49,7 +49,7 @@ To deploy in Heroku, use the [Heroku buildpack](https://github.com/mars/create-r
 heroku config:set REACT_APP_API_KEY=XXXXX-XXXXXX
 heroku create mymapviz --buildpack mars/create-react-app
 git push heroku master
-
+heroku open
 ```
 
 ##  GeoJSON
