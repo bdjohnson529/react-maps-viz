@@ -10,6 +10,14 @@ This is a React app which requires [Node.js](https://nodejs.org/en/) to run. You
 node -v
 ```
 
+## Usage
+On the command line, navigate to the lowest level of the repository. The following commands will serve the app on the local network:
+
+```
+npm install
+npm start
+```
+
 ##  GeoJSON
 This app uses geojson files to build data layers on top of Google Maps. There are several sample JSON files provided in `src/data`, including the letters GOOGLE overlayed over the continent of Australia, and food desert polygons overlayed on the county of Los Angeles. Any data can be visualized, if it is converted to geoJSON format. Note in the sample code below that the last coordinate must be the same as the first coordinate.
 
@@ -56,13 +64,6 @@ The repository file structure should resemble:
 		+- la_deserts.json
 	+- Map.js
 +- .env
-```
-
-## Building
-On the command line, navigate to the lowest level of the repository. The following command will serve the app on the local network:
-
-```
-npm start
 ```
 
 
