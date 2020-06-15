@@ -43,6 +43,14 @@ npm install
 npm start
 ```
 
+To deploy in Heroku, use the [Heroku buildpack](https://github.com/mars/create-react-app-buildpack).
+
+```
+heroku create mymapviz --buildpack mars/create-react-app
+git push heroku master
+
+```
+
 ##  GeoJSON
 This app uses geojson files to build data layers on top of Google Maps. There are several sample JSON files provided in `src/data`, including the letters GOOGLE overlayed over the continent of Australia, and food desert polygons overlayed on the county of Los Angeles. Any data can be visualized, if it is converted to geoJSON format. Note in the sample code below that the last coordinate must be the same as the first coordinate.
 
