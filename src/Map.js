@@ -12,7 +12,7 @@ class Map extends Component {
 
         // bindings
         this.constructMap = this.constructMap.bind(this);
-        this.constructInfoWindow = this.constructInfoWindow.bind(this);
+        this.getInfoWindowHTML = this.getInfoWindowHTML.bind(this);
 
     }
 
@@ -29,6 +29,7 @@ class Map extends Component {
 
         // generate new infowindow
         this.infowindow = new window.google.maps.InfoWindow();
+
     }
 
     constructDataLayer() {
@@ -48,7 +49,7 @@ class Map extends Component {
         });
     }
 
-    constructInfoWindow(county, pop) {
+    getInfoWindowHTML(county, pop) {
         // formatted table
         var html = `<div style='width:150px; text-align: center;'>
                         <table style="width:100%">
@@ -66,6 +67,8 @@ class Map extends Component {
     }
 
     configureListeners() {
+        var self = this;
+
 
         // when mouse over, change polygon
         this.map.data.addListener('mouseover', (event) => {
@@ -86,18 +89,17 @@ class Map extends Component {
             var county = event.feature.getProperty("county");
             var pop = event.feature.getProperty("population");
 
-            var html = this.constructInfoWindow(county, pop)
+            var html = self.getInfoWindowHTML(county, pop)
 
-            // logging
-            console.log(html)
 
-            this.infowindow.setContent(html);
-            this.infowindow.setPosition(event.latLng);
-            this.infowindow.setOptions({
+            // configure info window
+            self.infowindow.setContent(html);
+            self.infowindow.setPosition(event.latLng);
+            self.infowindow.setOptions({
                 pixelOffset: new window.google.maps.Size(0, -30)
             });
 
-            this.infowindow.open(this.map);
+            self.infowindow.open(this.map);
             
         });
     }
@@ -105,6 +107,9 @@ class Map extends Component {
 
     componentDidMount() {
         if (!window.google) {
+
+            console.log("manual load");
+
             var s = document.createElement('script');
             s.type = 'text/javascript';
             s.src = 'https://maps.googleapis.com/maps/api/js?key=' + process.env.REACT_APP_API_KEY;
