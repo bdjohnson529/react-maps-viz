@@ -45,8 +45,8 @@ git push heroku master
 heroku open
 ```
 
-##  GeoJSON
-This app uses geojson files to build data layers on top of Google Maps. There are several sample JSON files provided in `src/data`, including the letters GOOGLE overlayed over the continent of Australia, and food desert polygons overlayed on the county of Los Angeles. Any data can be visualized, if it is converted to geoJSON format. Note in the sample code below that the last coordinate must be the same as the first coordinate.
+##  GeoJSON Polygons
+This app uses geojson polygons to build data layers on top of Google Maps. A GeoJSON polygon is defined by a set of coordinates. We will use latitude and longitude to specify the coordinates.
 
 ```
 {
@@ -61,7 +61,7 @@ This app uses geojson files to build data layers on top of Google Maps. There ar
         "type": "Polygon",
         "coordinates": [
           [
-            [123.61, -22.14], [122.38, -21.73], [121.06, -21.69], [119.66, -22.22], [119.00, -23.40], [123.61, -22.14]
+            [x1, y1], [x2, y2], [x3, y3], [x4, y4]
           ]
         ]
       }
