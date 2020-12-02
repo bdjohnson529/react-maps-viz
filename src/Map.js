@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import deserts from './data/ca_deserts.json';
+import deserts from './data/ca-zips.json';
 
 
 class Map extends Component {
@@ -49,7 +49,7 @@ class Map extends Component {
         });
     }
 
-    getInfoWindowHTML(county, pop) {
+    getInfoWindowHTML(county, pop, zipCode) {
         // formatted table
         var html = `<div style='width:150px; text-align: center;'>
                         <table style="width:100%">
@@ -60,6 +60,10 @@ class Map extends Component {
                           <tr>
                             <td>Population</td>` + 
                             `<td>` + pop + `</td>` +
+                          `</tr>
+                          <tr>
+                            <td>Zip Code</td>` + 
+                            `<td>` + zipCode + `</td>` +
                           `</tr>
                         </table>`
 
@@ -88,8 +92,9 @@ class Map extends Component {
             // feature properties
             var county = event.feature.getProperty("county");
             var pop = event.feature.getProperty("population");
+            var zipCode = event.feature.getProperty("zip");
 
-            var html = self.getInfoWindowHTML(county, pop)
+            var html = self.getInfoWindowHTML(county, pop, zipCode)
 
 
             // configure info window
